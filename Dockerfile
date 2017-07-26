@@ -10,14 +10,17 @@ RUN apt-get install -y \
 	python-scrapy \
 	python-pillow \
 	ipython 
-	
-	
+		
 RUN pip install \
 	pushbullet.py \
 	tweepy \
 	psutil \
-	evernote
+	evernote \
+	webapp
 	
+RUN apt-get install -y \
+	nano \
+	htop
 
 CMD /bin/bash
 	
