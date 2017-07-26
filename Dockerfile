@@ -2,7 +2,7 @@ FROM debian:jessie
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install \
+RUN apt-get install -y \
 	python \
 	python-dev \
 	python-pip \
@@ -12,7 +12,7 @@ RUN apt-get install \
 	ipython 
 	
 	
-RUN pip install \
+RUN pip install -y \
 	pushbullet.py \
 	feedparser \
 	beautifulsoup4 \
