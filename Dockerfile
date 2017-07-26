@@ -23,7 +23,12 @@ RUN pip install \
 	pushbullet.py \
 	tweepy \
 	psutil \
-	evernote
+	evernote \
+	wordcloud \
+	pandas \
+	pandas-datareader \
+	pgpy \
+	numpy
 
 
 # SET ROOT PASSWORD 
