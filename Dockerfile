@@ -14,21 +14,8 @@ RUN apt-get install -y \
 	
 RUN pip install \
 	pushbullet.py \
-	feedparser \
-	beautifulsoup4 \
-	twisted \
-	numpy \
-	plotly \
-#	scipy \
-	matplotlib \
-	plyer \
-	chatterbot \
 	tweepy \
-	wordcloud \
 	psutil \
-	progressbar2 \
-	pandas \
-	pandas-datareader \
 	onlykey \
 	evernote
 	
