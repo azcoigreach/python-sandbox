@@ -12,7 +12,7 @@ RUN apt-get install -y \
 	ipython 
 	
 	
-RUN pip install -y \
+RUN pip install \
 	pushbullet.py \
 	feedparser \
 	beautifulsoup4 \
@@ -30,8 +30,7 @@ RUN pip install -y \
 	pandas \
 	pandas-datareader \
 	onlykey \
-	evernote \
-	cryptography
+	evernote
 	
 
 CMD /bin/bash
