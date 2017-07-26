@@ -16,7 +16,6 @@ RUN pip install \
 	pushbullet.py \
 	tweepy \
 	psutil \
-	onlykey \
 	evernote
 	
 
