@@ -1,6 +1,8 @@
-FROM resin/rpi-raspbian:latest
+FROM debian:jessie
 
-RUN apt-get update && apt-get install \
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get install \
 	python \
 	python-dev \
 	python-pip \
@@ -13,14 +15,24 @@ RUN apt-get update && apt-get install \
 RUN pip install \
 	pushbullet.py \
 	feedparser \
-	beautifulsoup \
+	beautifulsoup4 \
 	twisted \
 	numpy \
 	plotly \
 #	scipy \
 	matplotlib \
 	plyer \
-	chatterbot
+	chatterbot \
+	tweepy \
+	wordcloud \
+	psutil \
+	progressbar2 \
+	pandas \
+	pandas-datareader \
+	onlykey \
+	evernote \
+	cryptography
+	
 
 CMD /bin/bash
 	
