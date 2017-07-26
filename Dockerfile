@@ -23,8 +23,7 @@ RUN pip install \
 	pushbullet.py \
 	tweepy \
 	psutil \
-	evernote \
-	webapp
+	evernote
 
 
 # SET ROOT PASSWORD 
