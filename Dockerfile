@@ -21,7 +21,6 @@ RUN apt-get install -y \
 		
 RUN pip install \
 	tweepy \
-	wordcloud \
 	bottle \
 	multiprocessing
 
