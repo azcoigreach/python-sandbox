@@ -20,14 +20,8 @@ RUN apt-get install -y \
 	ipython 
 		
 RUN pip install \
-	pushbullet.py \
 	tweepy \
-	psutil \
-	evernote \
 	wordcloud \
-	pandas \
-	pandas-datareader \
-	pgpy \
 	bottle \
 	multiprocessing
 
