@@ -28,7 +28,8 @@ RUN pip install \
 	pandas \
 	pandas-datareader \
 	pgpy \
-	numpy
+	bottle \
+	multiprocessing
 
 
 # SET ROOT PASSWORD 
