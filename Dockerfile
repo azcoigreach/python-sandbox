@@ -23,11 +23,13 @@ RUN pip install \
 	tweepy \
 	bottle \
 	multiprocessing
+	
+RUN pip install argeparse
 
-RUN curl -s https://syncthing.net/release-key.txt | sudo apt-key add - | \
+RUN curl -s https://syncthing.net/release-key.txt | apt-key add - | \
 	echo "deb https://apt.syncthing.net/ syncthing stable" | \
-	sudo tee /etc/apt/sources.list.d/syncthing.list | \
-	sudo apt-get install syncthing
+	tee /etc/apt/sources.list.d/syncthing.list | \
+	apt-get install syncthing
 
 
 # SET ROOT PASSWORD 
