@@ -24,7 +24,7 @@ RUN pip install \
 	bottle \
 	multiprocessing
 	
-RUN pip install argeparse
+RUN pip install argparse
 
 RUN curl -s https://syncthing.net/release-key.txt | apt-key add - | \
 	echo "deb https://apt.syncthing.net/ syncthing stable" | \
