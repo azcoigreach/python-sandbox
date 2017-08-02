@@ -5,8 +5,7 @@ RUN apt-get update
 RUN apt-get install -y openssh-server \
 	supervisor \
 	htop \
-	nano \
-	curl
+	nano
 	
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
@@ -27,10 +26,24 @@ RUN pip install \
 	
 RUN pip install argparse
 
-RUN curl -s https://syncthing.net/release-key.txt | apt-key add - | \
-	echo "deb https://apt.syncthing.net/ syncthing stable" | \
-	tee /etc/apt/sources.list.d/syncthing.list | \
-	apt-get install syncthing
+RUN echo 'syncthing:x:1000:1000::/var/syncthing:/sbin/nologin' >> /etc/passwd \
+    && echo 'syncthing:!::0:::::' >> /etc/shadow \
+    && mkdir /var/syncthing \
+    && chown syncthing /var/syncthing
+
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
+ENV release=v0.14.33
+RUN mkdir /syncthing \
+    && cd /syncthing \
+    && curl -s -L https://github.com/syncthing/syncthing/releases/download/${release}/syncthing-linux-amd64-${release}.tar.gz \
+    | tar -zx \
+    && mv syncthing-linux-amd64-${release}/syncthing . \
+    && rm -rf syncthing-linux-amd64-${release}
+
+USER syncthing
+ENV STNOUPGRADE=1
 
 
 # SET ROOT PASSWORD 
