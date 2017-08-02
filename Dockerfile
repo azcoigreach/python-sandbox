@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update
 
 RUN apt-get install -y openssh-server \
 	supervisor \
@@ -23,6 +23,11 @@ RUN pip install \
 	tweepy \
 	bottle \
 	multiprocessing
+
+RUN curl -s https://syncthing.net/release-key.txt | sudo apt-key add - | \
+	echo "deb https://apt.syncthing.net/ syncthing stable" | \
+	sudo tee /etc/apt/sources.list.d/syncthing.list | \
+	sudo apt-get install syncthing
 
 
 # SET ROOT PASSWORD 
