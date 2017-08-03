@@ -5,7 +5,8 @@ RUN apt-get update
 RUN apt-get install -y openssh-server \
 	supervisor \
 	htop \
-	nano
+	nano \
+	curl
 	
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
