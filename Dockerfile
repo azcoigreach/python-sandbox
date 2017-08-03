@@ -27,7 +27,7 @@ RUN pip install argparse
 
 #RUN echo 'syncthing:x:1000:1000::/var/syncthing:/sbin/nologin' >> /etc/passwd \
 #    && echo 'syncthing:!::0:::::' >> /etc/shadow \
-RUN adduser syncthing && \
+RUN adduser syncthing \
     && mkdir /var/syncthing \
     && chown syncthing /var/syncthing
 
