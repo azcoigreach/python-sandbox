@@ -32,7 +32,7 @@ RUN echo 'syncthing:x:1000:1000::/var/syncthing:/sbin/nologin' >> /etc/passwd \
     && chown syncthing /var/syncthing
 
 RUN curl -s https://syncthing.net/release-key.txt | sudo apt-key add - \
-    && echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list \
+    && echo "deb https://apt.syncthing.net/ syncthing stable" | tee /etc/apt/sources.list.d/syncthing.list \
     && apt-get update \
     && apt-get install syncthing -y
 
