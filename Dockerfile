@@ -31,16 +31,12 @@ RUN echo 'syncthing:x:1000:1000::/var/syncthing:/sbin/nologin' >> /etc/passwd \
     && mkdir /var/syncthing \
     && chown syncthing /var/syncthing
 
-RUN apk add --update curl && \
-    rm -rf /var/cache/apk/*
+RUN curl -s https://syncthing.net/release-key.txt | sudo apt-key add - \
+    && echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list \
+    && sudo apt-get update \
+    && sudo apt-get install syncthing -y
 
-ENV release=v0.14.33
-RUN mkdir /syncthing \
-    && cd /syncthing \
-    && curl -s -L https://github.com/syncthing/syncthing/releases/download/${release}/syncthing-linux-amd64-${release}.tar.gz \
-    | tar -zx \
-    && mv syncthing-linux-amd64-${release}/syncthing . \
-    && rm -rf syncthing-linux-amd64-${release}
+
 
 USER syncthing
 ENV STNOUPGRADE=1
