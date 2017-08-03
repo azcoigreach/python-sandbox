@@ -55,6 +55,6 @@ ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 RUN echo 'export LANG="en_US.UTF-8"' >> /etc/profile
  
-EXPOSE 22 8385
+EXPOSE 22 8384
 CMD ["/usr/bin/supervisord"]
 	
