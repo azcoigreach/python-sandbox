@@ -38,7 +38,7 @@ RUN curl -s https://syncthing.net/release-key.txt | apt-key add - \
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-USER syncthing
+#USER syncthing
 ENV STNOUPGRADE=1
 
 
